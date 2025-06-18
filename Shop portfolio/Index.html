@@ -69,6 +69,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      <div class="mobile-menu-icon" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+      </div>
+
     }
 
     .logo {
@@ -599,6 +603,35 @@
       transform: translateX(50px);
       transition: all 0.8s ease;
     }
+      .mobile-menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-secondary);
+      }
+      @media (max-width: 768px) {
+        mobile-menu-icon {
+          display: block;
+        }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    background: var(--primary-cream);
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 999;
+    box-shadow: var(--shadow-medium);
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+
 
     .slide-in-right.visible {
       opacity: 1;
@@ -642,6 +675,19 @@
         <img src="pic1.webp" alt="Dried flower bouquet in vase" />
       </div>
     </div>
+    @media (max-width: 768px) {
+    .hero {
+    padding: 4rem 1rem;
+    height: auto;
+  }
+    .hero-image {
+    height: auto;
+  }
+    .hero-text p {
+    max-width: 100%;
+  }
+}
+
   </section>
 
   <!-- Services Section -->
@@ -701,6 +747,16 @@
         </div>
       </div>
     </div>
+    @media (max-width: 768px) {
+  .about-text, .about-image {
+    padding: 0 1rem;
+  }
+
+  .about-image {
+    height: 300px;
+  }
+}
+
   </section>
 
   <!-- Products Section -->
@@ -757,6 +813,21 @@
         </div>
       </div>
     </div>
+    @media (max-width: 480px) {
+  .product-card, .service-card {
+    padding: 1rem;
+  }
+
+  .product-image {
+    height: 220px;
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
   </section>
 
   <!-- Contact Section -->
@@ -815,6 +886,16 @@
         <p>&copy; 2025 Bloom & Co. All rights reserved.</p>
       </div>
     </div>
+    @media (max-width: 600px) {
+  .footer-content {
+    gap: 1.5rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
   </footer>
 
   <script>
@@ -876,6 +957,9 @@
     document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach((el) => {
       observer.observe(el);
     });
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
   </script>
 </body>
 </html>
